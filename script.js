@@ -1,5 +1,5 @@
 var typed = new Typed(".multiple-text",{
-    strings: ["Frontend Developer","Blockchain Developer","UI/UX Designer"],
+    strings: ["Frontend Developer","Blockchain Developer","Cryptocurrency Analyst","UI/UX Designer"],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
@@ -14,6 +14,37 @@ menuIcon.onclick = ()=>{
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 }
+//Email section
+
+function sendMail(){
+    
+
+    //email section
+    var params = {name:document.getElementById('name').value,
+                  email:document.getElementById("email").value,
+                  message:document.getElementById('message').value,
+                  subject:document.getElementById('subject').value,
+                  number:document.getElementById('number').value
+        }
+        const serviceID = "service_tojug5z"
+const templateID = "template_mndkq3u"
+
+emailjs.send(serviceID,templateID,params)
+.then(
+    res => {
+        document.getElementById("name").value="";
+        document.getElementById("email").value="";
+        document.getElementById("message").value="";
+        document.getElementById("subject").value="";
+        document.getElementById("number").value="";
+        console.log(res);
+        alert("Your message sent successfully")
+    }
+    
+)
+.catch((err)=>console.log(err))
+}
+
 
 //navbar active
 let sections = document.querySelectorAll('section');
